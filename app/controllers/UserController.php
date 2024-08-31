@@ -14,8 +14,8 @@ class UserController extends Controller {
     public function store() {
         $user = new User();
         $user->create([
-            'name'=> $this->request->getPost('name'),
-            'email'=> $this->request->getPost('email')
+            'name'=> request('name'),
+            'email'=> request('email')
         ]);
         return Redirect::to('/users');
     }
@@ -31,8 +31,8 @@ class UserController extends Controller {
     {
         $user = new User();
         $user->update($id, [
-            'name'=> $this->request->getPost('name'),
-            'email'=> $this->request->getPost('email')
+            'name'=> request('name'),
+            'email'=> request('email')
         ]);
 
         return Redirect::to('/users');
